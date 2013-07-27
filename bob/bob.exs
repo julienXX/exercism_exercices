@@ -14,6 +14,7 @@ defmodule Teenager do
   end
 
   def is_nil?(string) do
+    # first/1 returns nil is the string is empty
     nil? String.first string
   end
 
