@@ -14,8 +14,7 @@ defmodule Teenager do
   end
 
   defp silent?(sentence) do
-    # first/1 returns nil is the string is empty
-    nil? String.first sentence
+    sentence == ""
   end
 
   defp yelled?(sentence) do
