@@ -8,14 +8,13 @@ defmodule Words do
   """
 
   def count(sentence) do
-    dict = HashDict.new []
+    dict = HashDict.new
     String.downcase(sentence) |> String.split |>  do_count(dict)
   end
 
   defp do_count([], dict), do: dict
   defp do_count([head|tail], dict) do
-    entry = prepare_entry(head, dict)
-    do_count(tail, entry)
+    do_count(tail, prepare_entry(head, dict))
   end
 
   defp prepare_entry(word, dict) do
@@ -24,7 +23,7 @@ defmodule Words do
 
   defp add_or_increment_entry("", dict), do: dict
   defp add_or_increment_entry(word, dict) do
-    Dict.update(dict, word, 1, fn(count) -> count + 1 end)
+    Dict.update(dict, word, 1, &1 + 1)
   end
 
 end
