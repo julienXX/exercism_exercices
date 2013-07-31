@@ -24,8 +24,7 @@ defmodule Words do
 
   defp add_or_increment_entry("", dict), do: dict
   defp add_or_increment_entry(word, dict) do
-    current_count = HashDict.get(dict, word) || 0
-    HashDict.put(dict, word, current_count + 1)
+    Dict.update(dict, word, 1, fn(count) -> count + 1 end)
   end
 
 end
