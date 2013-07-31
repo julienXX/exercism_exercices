@@ -8,13 +8,13 @@ defmodule Words do
   """
 
   def count(sentence) do
-    dict = HashDict.new
-    String.downcase(sentence) |> String.split |>  do_count(dict)
+    String.downcase(sentence) |> String.split |>  do_count(HashDict.new)
   end
 
   defp do_count([], dict), do: dict
   defp do_count([head|tail], dict) do
-    do_count(tail, prepare_entry(head, dict))
+    entry = prepare_entry(head, dict)
+    do_count(tail, entry)
   end
 
   defp prepare_entry(word, dict) do
