@@ -1,19 +1,11 @@
 defmodule Teenager do
 
-@doc """
-    Bob is a lackadaisical teenager. In conversation, his responses are very limited.
-
-    iex> Teenager.hey("")
-    "Fine. Be that way."
-
-    iex> Teenager.hey("Do you like chocolate?")
-    "Sure."
-
-    iex> Teenager.hey("LEAVE ME ALONE!")
-    "Woah, chill out!"
-
-    iex> Teenager.hey("It's sunny outside")
-    "Whatever."
+  @doc """
+    Teenager is a lackadaisical teenager. In conversation, his responses are very limited.
+    Teenager answers 'Sure.' if you ask him a question.
+    He answers 'Whatever.' if you tell him something.
+    He answers 'Woah, chill out!' if you yell at him (ALL CAPS).
+    He says 'Fine. Be that way!' if you address him without actually saying anything.
   """
 
   def hey(what) do
