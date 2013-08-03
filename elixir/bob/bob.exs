@@ -1,5 +1,21 @@
 defmodule Teenager do
 
+@doc """
+    Bob is a lackadaisical teenager. In conversation, his responses are very limited.
+
+    iex> Teenager.hey("")
+    "Fine. Be that way."
+
+    iex> Teenager.hey("Do you like chocolate?")
+    "Sure."
+
+    iex> Teenager.hey("LEAVE ME ALONE!")
+    "Woah, chill out!"
+
+    iex> Teenager.hey("It's sunny outside")
+    "Whatever."
+  """
+
   def hey(what) do
     cond do
       silent? what ->
