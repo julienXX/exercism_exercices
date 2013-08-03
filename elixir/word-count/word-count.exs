@@ -8,17 +8,8 @@ defmodule Words do
   """
 
   def count(sentence) do
-    String.downcase(sentence) |> String.split |>  do_count(HashDict.new)
-  end
-
-  defp do_count([], dict), do: dict
-  defp do_count([head|tail], dict) do
-    entry = prepare_entry(head, dict)
-    do_count(tail, entry)
-  end
-
-  defp prepare_entry(word, dict) do
-    Regex.replace(%r/\W/, word, "") |> add_or_increment_entry(dict)
+    words = String.downcase(sentence) |> String.split(%r/\W/)
+    Enum.reduce(words, HashDict.new, add_or_increment_entry(&1, &2))
   end
 
   defp add_or_increment_entry("", dict), do: dict
