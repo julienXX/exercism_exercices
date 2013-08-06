@@ -8,8 +8,9 @@ defmodule Words do
   """
 
   def count(sentence) do
-    words = String.downcase(sentence) |> String.split(%r/\W/)
-    Enum.reduce(words, HashDict.new, add_or_increment_entry(&1, &2))
+    String.downcase(sentence)
+    |> String.split(%r/\W/)
+    |> Enum.reduce(HashDict.new, add_or_increment_entry(&1, &2))
   end
 
   defp add_or_increment_entry("", dict), do: dict
