@@ -10,7 +10,7 @@ defmodule Anagram do
   """
 
   def match(word, list) do
-    list |> filter(fn(potential_word) -> anagram?(sort_codepoints(word), sort_codepoints(potential_word)) end)
+    list |> filter(&anagram?(sort_codepoints(word), sort_codepoints(&1)))
   end
 
   defp sort_codepoints(word) do
