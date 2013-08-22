@@ -13,11 +13,6 @@ defmodule Anagram do
     list |> filter(&anagram?(sort_codepoints(word), sort_codepoints(&1)))
   end
 
-  defp sort_codepoints(word) do
-    sort(codepoints(word))
-  end
-
-  defp anagram?(word, potential_word) do
-    word == potential_word
-  end
+  defp sort_codepoints(word), do: sort(codepoints(word))
+  defp anagram?(word, potential_word), do: word == potential_word
 end
