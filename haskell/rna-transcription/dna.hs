@@ -1,9 +1,12 @@
 module DNA (toRNA) where
 
 toRNA :: String -> String
-toRNA = map nucleotide where
-    nucleotide 'G' = 'C'
-    nucleotide 'C' = 'G'
-    nucleotide 'T' = 'A'
-    nucleotide 'A' = 'U'
-    nucleotide _ = undefined
+toRNA = map replaceByComplement
+
+replaceByComplement :: Char -> Char
+replaceByComplement nucleotide = case nucleotide of
+  'G' -> 'C'
+  'C' -> 'G'
+  'T' -> 'A'
+  'A' -> 'U'
+  _ -> error $ "Undefined nucleotide: " ++ show nucleotide
