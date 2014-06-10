@@ -1,4 +1,4 @@
-(ns phrase
+(ns word-count
   (require [clojure.string :as str]))
 
 (defn- split-words
